@@ -1,9 +1,9 @@
 public enum Newspaper {
 
-    PROMOTIONAL_AND_INFORMATIONAL("Пирожок", 10, 1),//Пирожок
-    ENTERTAINING("Булочка", 20, 2),//Булочка
-    DAILY("Тортик", 30, 3),//Тортик
-    WEEKLY("Кекс", 40, 4);//Кекс
+    PROMOTIONAL_AND_INFORMATIONAL("Вода", 10, 1),//Пирожок
+    ENTERTAINING("Газировка", 20, 2),//Булочка
+    DAILY("Сок", 30, 3),//Тортик
+    WEEKLY("Содовая", 40, 4);//Кекс
 
     private String title;
     private int price;

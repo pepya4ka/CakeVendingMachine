@@ -18,6 +18,7 @@ public class AppearanceMachine implements ActionListener {
     JLabel amountEntertaining1;
     JLabel amountDaily1;
     JLabel amountWeekly1;
+    JLabel income1;
     static JTextArea jTextAreaForMachine1;
 
     JLabel jLabelForMachine2;
@@ -27,6 +28,7 @@ public class AppearanceMachine implements ActionListener {
     JLabel amountEntertaining2;
     JLabel amountDaily2;
     JLabel amountWeekly2;
+    JLabel income2;
     static JTextArea jTextAreaForMachine2;
 
     JLabel jLabelForMachine3;
@@ -36,6 +38,7 @@ public class AppearanceMachine implements ActionListener {
     JLabel amountEntertaining3;
     JLabel amountDaily3;
     JLabel amountWeekly3;
+    JLabel income3;
     static JTextArea jTextAreaForMachine3;
 
     private JPanel jPanelForButton;
@@ -86,18 +89,19 @@ public class AppearanceMachine implements ActionListener {
 
     public void go() {
         try {
-            UIManager.setLookAndFeel("com.sun.java.swing.plaf.gtk.GTKLookAndFeel");
+            //UIManager.setLookAndFeel("com.sun.java.swing.plaf.gtk.GTKLookAndFeel");
         } catch (Exception e) {
             e.printStackTrace();
         }
-        jFrame = new JFrame("Сеть автоматов по продаже выпечки");
+        jFrame = new JFrame("Сеть автоматов по продаже напитков");
         jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         jLabelForMachine1 = new JLabel("Автомат 1");
         jLabelAmountOperation1 = new JLabel("Кол-во завершенных операций: ");
-        amountPromotional1 = new JLabel("Пирожков: ");//
-        amountEntertaining1 = new JLabel("Булочек: ");//
-        amountDaily1 = new JLabel("Тортиков: ");//
-        amountWeekly1 = new JLabel("Кексов: ");//
+        amountPromotional1 = new JLabel("Бутылок воды: ");//
+        amountEntertaining1 = new JLabel("Бутылок газировки: ");//
+        amountDaily1 = new JLabel("Бутылок сока: ");//
+        amountWeekly1 = new JLabel("Бутылок содовой: ");//
+        income1 = new JLabel("Прибыль: 0 .р");
         jLabelAmounNewspaper1 = new JLabel("0 0 0 0");
         jTextAreaForMachine1 = new JTextArea(2, 3);
         JScrollPane scrollPane1 = new JScrollPane(jTextAreaForMachine1);
@@ -108,10 +112,11 @@ public class AppearanceMachine implements ActionListener {
 
         jLabelForMachine2 = new JLabel("Автомат 2");
         jLabelAmountOperation2 = new JLabel("Кол-во завершенных операций: ");
-        amountPromotional2 = new JLabel("Пирожков: ");
-        amountEntertaining2 = new JLabel("Булочек: ");
-        amountDaily2 = new JLabel("Тортиков: ");
-        amountWeekly2 = new JLabel("Кексов: ");
+        amountPromotional2 = new JLabel("Бутылок воды: ");
+        amountEntertaining2 = new JLabel("Бутылок газировки: ");
+        amountDaily2 = new JLabel("Бутылок сока: ");
+        amountWeekly2 = new JLabel("Бутылок содовой : ");
+        income2 = new JLabel("Прибыль: 0 .р");
         jLabelAmounNewspaper2 = new JLabel("0 0 0 0");
         jTextAreaForMachine2 = new JTextArea(2, 3);
         JScrollPane scrollPane2 = new JScrollPane(jTextAreaForMachine2);
@@ -122,10 +127,11 @@ public class AppearanceMachine implements ActionListener {
 
         jLabelForMachine3 = new JLabel("Автомат 3");
         jLabelAmountOperation3 = new JLabel("Кол-во завершенных операций: ");
-        amountPromotional3 = new JLabel("Пирожков: ");
-        amountEntertaining3 = new JLabel("Булочек: ");
-        amountDaily3 = new JLabel("Тортиков: ");
-        amountWeekly3 = new JLabel("Кексов: ");
+        amountPromotional3 = new JLabel("Бутылок воды: ");
+        amountEntertaining3 = new JLabel("Бутылок газировки: ");
+        amountDaily3 = new JLabel("Бутылок сока: ");
+        amountWeekly3 = new JLabel("Бутылок содовой: ");
+        income3 = new JLabel("Прибыль: 0 .р");
         jLabelAmounNewspaper3 = new JLabel("0 0 0 0");
         jTextAreaForMachine3 = new JTextArea(2, 3);
         JScrollPane scrollPane3 = new JScrollPane(jTextAreaForMachine3);
@@ -170,6 +176,8 @@ public class AppearanceMachine implements ActionListener {
         c.gridy = GridBagConstraints.RELATIVE;
         gridBagLayout.setConstraints(amountWeekly1, c);
         jPanelForMachine.add(amountWeekly1);
+        gridBagLayout.setConstraints(income1, c);
+        jPanelForMachine.add(income1);
 
 
         c.fill = GridBagConstraints.VERTICAL;
@@ -212,6 +220,8 @@ public class AppearanceMachine implements ActionListener {
         c.gridy = GridBagConstraints.RELATIVE;
         gridBagLayout.setConstraints(amountWeekly2, c);
         jPanelForMachine.add(amountWeekly2);
+        gridBagLayout.setConstraints(income2, c);
+        jPanelForMachine.add(income2);
 
 
         c.fill = GridBagConstraints.VERTICAL;
@@ -254,6 +264,8 @@ public class AppearanceMachine implements ActionListener {
         c.gridy = GridBagConstraints.RELATIVE;
         gridBagLayout.setConstraints(amountWeekly3, c);
         jPanelForMachine.add(amountWeekly3);
+        gridBagLayout.setConstraints(income3, c);
+        jPanelForMachine.add(income3);
 
         c.fill = GridBagConstraints.VERTICAL;
         c.weighty = 1.0;
@@ -267,8 +279,8 @@ public class AppearanceMachine implements ActionListener {
 
 
         jButtonBeginAndEnd = new JButton("Начать работу");
-        jButtonFillMachine = new JButton("Пополнить выпечку в автоматах");
-        jButtonFillDailyNewspaper = new JButton("Обновить выпечку в автоматах");
+        jButtonFillMachine = new JButton("Пополнить напитки в автоматах");
+        jButtonFillDailyNewspaper = new JButton("Обновить напитки в автоматах");
         jButtonFillDailyNewspaper.setEnabled(false);
         jButtonFillMachine.setEnabled(false);//пока автоматы не работают, кнопка не активна
         jButtonFillDailyNewspaper.addActionListener(this);
@@ -304,6 +316,11 @@ public class AppearanceMachine implements ActionListener {
         jPanelForButtonBeginAndEnd.add(jLabelForTime);
 
 
+        jPanelForButtonBeginAndEnd.setBackground(Color.WHITE);
+        jPanelForMachine.setBackground(Color.orange);
+        jButtonTechnicalSupportForMachine1.setBackground(Color.orange);
+        jButtonTechnicalSupportForMachine2.setBackground(Color.orange);
+        jButtonTechnicalSupportForMachine3.setBackground(Color.orange);
         jFrame.getContentPane().add(BorderLayout.CENTER, jPanelForMachine);
         jFrame.getContentPane().add(BorderLayout.SOUTH, jPanelForButton);
         jFrame.getContentPane().add(BorderLayout.NORTH, jPanelForButtonBeginAndEnd);
@@ -335,20 +352,20 @@ public class AppearanceMachine implements ActionListener {
                 fl = true;
                 jButtonBeginAndEnd.setText("Закончить работу");
 
-                amountPromotional1.setText("Пирожков: " + newspaperMachine1.newspaper1);
-                amountEntertaining1.setText("Булочек: " + newspaperMachine1.newspaper2);
-                amountDaily1.setText("Тортиков: " + newspaperMachine1.newspaper3);
-                amountWeekly1.setText("Кексов: " + newspaperMachine1.newspaper4);
+                amountPromotional1.setText("Бутылок воды: " + newspaperMachine1.newspaper1);
+                amountEntertaining1.setText("Бутылок газировки: " + newspaperMachine1.newspaper2);
+                amountDaily1.setText("Бутылок сока: " + newspaperMachine1.newspaper3);
+                amountWeekly1.setText("Бутылок содовой: " + newspaperMachine1.newspaper4);
 
-                amountPromotional2.setText("Пирожков: " + newspaperMachine2.newspaper1);
-                amountEntertaining2.setText("Булочек: " + newspaperMachine2.newspaper2);
-                amountDaily2.setText("Тортиков: " + newspaperMachine2.newspaper3);
-                amountWeekly2.setText("Кексов: " + newspaperMachine2.newspaper4);
+                amountPromotional2.setText("Бутылок воды: " + newspaperMachine2.newspaper1);
+                amountEntertaining2.setText("Бутылок газировки: " + newspaperMachine2.newspaper2);
+                amountDaily2.setText("Бутылок сока: " + newspaperMachine2.newspaper3);
+                amountWeekly2.setText("Бутылок содовой: " + newspaperMachine2.newspaper4);
 
-                amountPromotional3.setText("Пирожков: " + newspaperMachine3.newspaper1);
-                amountEntertaining3.setText("Булочек: " + newspaperMachine3.newspaper2);
-                amountDaily3.setText("Тортиков: " + newspaperMachine3.newspaper3);
-                amountWeekly3.setText("Кексов: " + newspaperMachine3.newspaper4);
+                amountPromotional3.setText("Бутылок воды: " + newspaperMachine3.newspaper1);
+                amountEntertaining3.setText("Бутылок газировки: " + newspaperMachine3.newspaper2);
+                amountDaily3.setText("Бутылок сока: " + newspaperMachine3.newspaper3);
+                amountWeekly3.setText("Бутылок содовой: " + newspaperMachine3.newspaper4);
 
                 jButtonFillMachine.setEnabled(true);
 
@@ -423,43 +440,43 @@ public class AppearanceMachine implements ActionListener {
                 jButtonTechnicalSupportForMachine3.setEnabled(buttonTechnicalSupport3);
                 JOptionPane.showMessageDialog(jFrame, "Тех.поддержка исправила неисправность в работе автомата 3", "Сообщение", 1);
                 break;
-            case "Пополнить выпечку в автоматах":
+            case "Пополнить напитки в автоматах":
                 newspaperMachine1.setNewspaperAmount(5, 5, 5, 5);
                 newspaperMachine2.setNewspaperAmount(5, 5, 5, 5);
                 newspaperMachine3.setNewspaperAmount(5, 5, 5, 5);
-                amountPromotional1.setText("Пирожков: " + newspaperMachine1.newspaper1);
-                amountEntertaining1.setText("Булочек: " + newspaperMachine1.newspaper2);
-                amountDaily1.setText("Тортиков: " + newspaperMachine1.newspaper3);
-                amountWeekly1.setText("Кексов: " + newspaperMachine1.newspaper4);
+                amountPromotional1.setText("Бутылок воды: " + newspaperMachine1.newspaper1);
+                amountEntertaining1.setText("Бутылок газировки: " + newspaperMachine1.newspaper2);
+                amountDaily1.setText("Бутылок сока: " + newspaperMachine1.newspaper3);
+                amountWeekly1.setText("Бутылок содовой: " + newspaperMachine1.newspaper4);
 
-                amountPromotional2.setText("Пирожков: " + newspaperMachine2.newspaper1);
-                amountEntertaining2.setText("Булочек: " + newspaperMachine2.newspaper2);
-                amountDaily2.setText("Тортиков: " + newspaperMachine2.newspaper3);
-                amountWeekly2.setText("Кексов: " + newspaperMachine2.newspaper4);
+                amountPromotional2.setText("Бутылок воды: " + newspaperMachine2.newspaper1);
+                amountEntertaining2.setText("Бутылок газировки: " + newspaperMachine2.newspaper2);
+                amountDaily2.setText("Бутылок сока: " + newspaperMachine2.newspaper3);
+                amountWeekly2.setText("Бутылок содовой: " + newspaperMachine2.newspaper4);
 
-                amountPromotional3.setText("Пирожков: " + newspaperMachine3.newspaper1);
-                amountEntertaining3.setText("Булочек: " + newspaperMachine3.newspaper2);
-                amountDaily3.setText("Тортиков: " + newspaperMachine3.newspaper3);
-                amountWeekly3.setText("Кексов: " + newspaperMachine3.newspaper4);
+                amountPromotional3.setText("Бутылок воды: " + newspaperMachine3.newspaper1);
+                amountEntertaining3.setText("Бутылок газировки: " + newspaperMachine3.newspaper2);
+                amountDaily3.setText("Бутылок сока: " + newspaperMachine3.newspaper3);
+                amountWeekly3.setText("Бутылок содовой: " + newspaperMachine3.newspaper4);
                 break;
-            case "Обновить выпечку в автоматах":
+            case "Обновить напитки в автоматах":
                 newspaperMachine1.setNewspaperAmount(10, 10, 10, 10);
                 newspaperMachine2.setNewspaperAmount(10, 10, 10, 10);
                 newspaperMachine3.setNewspaperAmount(10, 10, 10, 10);
-                amountPromotional1.setText("Пирожков: " + newspaperMachine1.newspaper1);
-                amountEntertaining1.setText("Булочек: " + newspaperMachine1.newspaper2);
-                amountDaily1.setText("Тортиков: " + newspaperMachine1.newspaper3);
-                amountWeekly1.setText("Кексов: " + newspaperMachine1.newspaper4);
+                amountPromotional1.setText("Бутылок воды: " + newspaperMachine1.newspaper1);
+                amountEntertaining1.setText("Бутылок газировки: " + newspaperMachine1.newspaper2);
+                amountDaily1.setText("Бутылок сока: " + newspaperMachine1.newspaper3);
+                amountWeekly1.setText("Бутылок содовой: " + newspaperMachine1.newspaper4);
 
-                amountPromotional2.setText("Пирожков: " + newspaperMachine2.newspaper1);
-                amountEntertaining2.setText("Булочек: " + newspaperMachine2.newspaper2);
-                amountDaily2.setText("Тортиков: " + newspaperMachine2.newspaper3);
-                amountWeekly2.setText("Кексов: " + newspaperMachine2.newspaper4);
+                amountPromotional2.setText("Бутылок воды: " + newspaperMachine2.newspaper1);
+                amountEntertaining2.setText("Бутылок газировки: " + newspaperMachine2.newspaper2);
+                amountDaily2.setText("Бутылок сока: " + newspaperMachine2.newspaper3);
+                amountWeekly2.setText("Бутылок содовой: " + newspaperMachine2.newspaper4);
 
-                amountPromotional3.setText("Пирожков: " + newspaperMachine3.newspaper1);
-                amountEntertaining3.setText("Булочек: " + newspaperMachine3.newspaper2);
-                amountDaily3.setText("Тортиков: " + newspaperMachine3.newspaper3);
-                amountWeekly3.setText("Кексов: " + newspaperMachine3.newspaper4);
+                amountPromotional3.setText("Бутылок воды: " + newspaperMachine3.newspaper1);
+                amountEntertaining3.setText("Бутылок газировки: " + newspaperMachine3.newspaper2);
+                amountDaily3.setText("Бутылок сока: " + newspaperMachine3.newspaper3);
+                amountWeekly3.setText("Бутылок содовой: " + newspaperMachine3.newspaper4);
                 dailyButtonFill = false;
                 jButtonFillDailyNewspaper.setEnabled(dailyButtonFill);
 
@@ -483,36 +500,36 @@ public class AppearanceMachine implements ActionListener {
                     if (newspaperMachine1.newspaper1 >= 1)
                         runMachineWithNumber1(Newspaper.PROMOTIONAL_AND_INFORMATIONAL);
                     else
-                        JOptionPane.showMessageDialog(jFrame, "В автомате 1 закончились пирожки\n" +
-                                "Пожалуйста, пополните автомат выпечкой", "Ошибка", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(jFrame, "В автомате 1 закончились бутылки с водой\n" +
+                                "Пожалуйста, пополните автомат напитками", "Ошибка", JOptionPane.ERROR_MESSAGE);
                     break;
                 case 2:
                     if (newspaperMachine1.newspaper2 >= 1)
                         runMachineWithNumber1(Newspaper.ENTERTAINING);
                     else
-                        JOptionPane.showMessageDialog(jFrame, "В автомате 1 закончились булочки\n" +
-                                "Пожалуйста, пополните автомат выпечкой", "Ошибка", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(jFrame, "В автомате 1 закончились бутылки с газировкой\n" +
+                                "Пожалуйста, пополните автомат напитками", "Ошибка", JOptionPane.ERROR_MESSAGE);
                     break;
                 case 3:
                     if (newspaperMachine1.newspaper3 >= 1)
                         runMachineWithNumber1(Newspaper.DAILY);
                     else
-                        JOptionPane.showMessageDialog(jFrame, "В автомате 1 закончились тортики\n" +
-                                "Пожалуйста, пополните автомат выпечкой", "Ошибка", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(jFrame, "В автомате 1 закончились бутылки с соком\n" +
+                                "Пожалуйста, пополните автомат напитками", "Ошибка", JOptionPane.ERROR_MESSAGE);
                     break;
                 case 4:
                     if (newspaperMachine1.newspaper4 >= 1)
                         runMachineWithNumber1(Newspaper.WEEKLY);
                     else
-                        JOptionPane.showMessageDialog(jFrame, "В автомате 1 закончились кексы\n" +
-                                "Пожалуйста, пополните автомат выпечкой", "Ошибка", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(jFrame, "В автомате 1 закончились бутылки с содовой\n" +
+                                "Пожалуйста, пополните автомат напитками", "Ошибка", JOptionPane.ERROR_MESSAGE);
                     break;
             }
         }
     }
 
     private void runMachineWithNumber1(Newspaper newspaper) {
-        int change = 0;
+        int income = 0;
         Random random = new Random();
         int randomForSleep;
         jTextAreaForMachine1.append("Ожидает заказа...\n");
@@ -538,7 +555,7 @@ public class AppearanceMachine implements ActionListener {
             thread1.sleep(randomForSleep);
             int randNumber = new Random().nextInt(45);
             if (randNumber < 20) {
-                JOptionPane.showMessageDialog(jFrame, "Автомат 1 не выдает выпечку\n" +
+                JOptionPane.showMessageDialog(jFrame, "Автомат 1 не выдает напиток\n" +
                         "Пожалуйста, вызовете тех.поддержку для автомата 1", "Ошибка", JOptionPane.ERROR_MESSAGE);
                 flError1 = 1;
                 runMachine1 = false;
@@ -549,25 +566,27 @@ public class AppearanceMachine implements ActionListener {
                     thread1.sleep(randomForSleep);
                 }
             }
-            jTextAreaForMachine1.append("Выпечка выдана\n");
+            jTextAreaForMachine1.append("Напиток выдан\n");
+            income += newspaper.getPrice();
+            income1.setText("Прибыль: " + income + " р.");
             switch (order.toString()) {
-                case "Пирожок":
+                case "Вода":
                     newspaperMachine1.newspaper1--;
                     break;
-                case "Булочка":
+                case "Газировка":
                     newspaperMachine1.newspaper2--;
                     break;
-                case "Тортик":
+                case "Сок":
                     newspaperMachine1.newspaper3--;
                     break;
-                case "Кекс":
+                case "Содовая":
                     newspaperMachine1.newspaper4--;
                     break;
             }
-            amountPromotional1.setText("Пирожков: " + newspaperMachine1.newspaper1);
-            amountEntertaining1.setText("Булочек: " + newspaperMachine1.newspaper2);
-            amountDaily1.setText("Тортиков: " + newspaperMachine1.newspaper3);
-            amountWeekly1.setText("Кексов: " + newspaperMachine1.newspaper4);
+            amountPromotional1.setText("Бутылок воды: " + newspaperMachine1.newspaper1);
+            amountEntertaining1.setText("Бутылок газировки: " + newspaperMachine1.newspaper2);
+            amountDaily1.setText("Бутылок сока: " + newspaperMachine1.newspaper3);
+            amountWeekly1.setText("Бутылок содовой: " + newspaperMachine1.newspaper4);
             newspaperMachine1.amountsOperations++;
 //            jLabelForMachine1.setText("Автомат 1 (" + newspaperMachine1.getAmountsOperations() + ")");
             jLabelAmountOperation1.setText("Кол-во завершенных операций: " + newspaperMachine1.getAmountsOperations());
@@ -625,36 +644,36 @@ public class AppearanceMachine implements ActionListener {
                     if (newspaperMachine2.newspaper1 >= 1)
                         runMachineWithNumber2(Newspaper.PROMOTIONAL_AND_INFORMATIONAL);
                     else
-                        JOptionPane.showMessageDialog(jFrame, "В автомате 2 закончились пирожки\n" +
-                                "Пожалуйста, пополните автомат выпечкой", "Ошибка", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(jFrame, "В автомате 2 закончились бутылки с водой\n" +
+                                "Пожалуйста, пополните автомат напитками", "Ошибка", JOptionPane.ERROR_MESSAGE);
                     break;
                 case 2:
                     if (newspaperMachine2.newspaper2 >= 1)
                         runMachineWithNumber2(Newspaper.ENTERTAINING);
                     else
-                        JOptionPane.showMessageDialog(jFrame, "В автомате 2 закончились булочки\n" +
-                                "Пожалуйста, пополните автомат выпечкой", "Ошибка", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(jFrame, "В автомате 2 закончились бутылки с газировкой\n" +
+                                "Пожалуйста, пополните автомат напитками", "Ошибка", JOptionPane.ERROR_MESSAGE);
                     break;
                 case 3:
                     if (newspaperMachine2.newspaper3 >= 1)
                         runMachineWithNumber2(Newspaper.DAILY);
                     else
-                        JOptionPane.showMessageDialog(jFrame, "В автомате 2 закончились тортики\n" +
-                                "Пожалуйста, пополните автомат выпечкой", "Ошибка", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(jFrame, "В автомате 2 закончились бутылки с соком\n" +
+                                "Пожалуйста, пополните автомат напитками", "Ошибка", JOptionPane.ERROR_MESSAGE);
                     break;
                 case 4:
                     if (newspaperMachine2.newspaper4 >= 1)
                         runMachineWithNumber2(Newspaper.WEEKLY);
                     else
-                        JOptionPane.showMessageDialog(jFrame, "В автомате 2 закончились кексы\n" +
-                                "Пожалуйста, пополните автомат выпечкой", "Ошибка", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(jFrame, "В автомате 2 закончились бытулки с содовой\n" +
+                                "Пожалуйста, пополните автомат напитками", "Ошибка", JOptionPane.ERROR_MESSAGE);
                     break;
             }
         }
     }
 
     private void runMachineWithNumber2(Newspaper newspaper) {
-        int change = 0;
+        int income = 0;
         Random random = new Random();
         int randomForSleep;
         jTextAreaForMachine2.append("Ожидает заказа...\n");
@@ -680,7 +699,7 @@ public class AppearanceMachine implements ActionListener {
             thread2.sleep(randomForSleep);
             int randNumber = new Random().nextInt(45);
             if (randNumber < 20) {
-                JOptionPane.showMessageDialog(jFrame, "Автомат 2 не выдает выпечку\n" +
+                JOptionPane.showMessageDialog(jFrame, "Автомат 2 не выдает напиток\n" +
                         "Пожалуйста, вызовете тех.поддержку для автомата 2", "Ошибка", JOptionPane.ERROR_MESSAGE);
                 flError2 = 1;
                 runMachine2 = false;
@@ -691,26 +710,28 @@ public class AppearanceMachine implements ActionListener {
                     thread2.sleep(randomForSleep);
                 }
             }
-            jTextAreaForMachine2.append("Выпечка выдана\n");
+            jTextAreaForMachine2.append("Напиток выдан\n");
+            income += newspaper.getPrice();
+            income2.setText("Прибыль: " + income + " р.");
             newspaperMachine2.amountsOperations++;
             switch (order.toString()) {
-                case "Пирожок":
+                case "Вода":
                     newspaperMachine2.newspaper1--;
                     break;
-                case "Булочка":
+                case "Газировка":
                     newspaperMachine2.newspaper2--;
                     break;
-                case "Тортик":
+                case "Сок":
                     newspaperMachine2.newspaper3--;
                     break;
-                case "Кекс":
+                case "Содовая":
                     newspaperMachine2.newspaper4--;
                     break;
             }
-            amountPromotional2.setText("Пирожков: " + newspaperMachine2.newspaper1);
-            amountEntertaining2.setText("Булочек: " + newspaperMachine2.newspaper2);
-            amountDaily2.setText("Тортиков: " + newspaperMachine2.newspaper3);
-            amountWeekly2.setText("Кексов: " + newspaperMachine2.newspaper4);
+            amountPromotional2.setText("Бутылок воды: " + newspaperMachine2.newspaper1);
+            amountEntertaining2.setText("Бутылок газировки: " + newspaperMachine2.newspaper2);
+            amountDaily2.setText("Бутылок сока: " + newspaperMachine2.newspaper3);
+            amountWeekly2.setText("Бутылок содовой: " + newspaperMachine2.newspaper4);
             jLabelAmountOperation2.setText("Кол-во завершенных операций: " + newspaperMachine2.getAmountsOperations());
 //            jLabelForMachine2.setText("Автомат 2 (" + newspaperMachine2.getAmountsOperations() + ")");
             randomForSleep = random.nextInt(2000) + 2000;
@@ -767,36 +788,36 @@ public class AppearanceMachine implements ActionListener {
                     if (newspaperMachine3.newspaper1 >= 1)
                         runMachineWithNumber3(Newspaper.PROMOTIONAL_AND_INFORMATIONAL);
                     else
-                        JOptionPane.showMessageDialog(jFrame, "В автомате 3 закончились пирожки\n" +
-                                "Пожалуйста, пополните автомат выпечкой", "Ошибка", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(jFrame, "В автомате 3 закончились бутылки с водой\n" +
+                                "Пожалуйста, пополните автомат напитками", "Ошибка", JOptionPane.ERROR_MESSAGE);
                     break;
                 case 2:
                     if (newspaperMachine3.newspaper2 >= 1)
                         runMachineWithNumber3(Newspaper.ENTERTAINING);
                     else
-                        JOptionPane.showMessageDialog(jFrame, "В автомате 3 закончились булочки\n" +
-                                "Пожалуйста, пополните автомат выпечкой", "Ошибка", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(jFrame, "В автомате 3 закончились бутылки с газировкой\n" +
+                                "Пожалуйста, пополните автомат напитками", "Ошибка", JOptionPane.ERROR_MESSAGE);
                     break;
                 case 3:
                     if (newspaperMachine3.newspaper3 >= 1)
                         runMachineWithNumber3(Newspaper.DAILY);
                     else
-                        JOptionPane.showMessageDialog(jFrame, "В автомате 3 закончились тортики\n" +
-                                "Пожалуйста, пополните автомат выпечкой", "Ошибка", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(jFrame, "В автомате 3 закончились бутылки с соком\n" +
+                                "Пожалуйста, пополните автомат напитками", "Ошибка", JOptionPane.ERROR_MESSAGE);
                     break;
                 case 4:
                     if (newspaperMachine3.newspaper4 >= 1)
                         runMachineWithNumber3(Newspaper.WEEKLY);
                     else
-                        JOptionPane.showMessageDialog(jFrame, "В автомате 3 закончились кексы\n" +
-                                "Пожалуйста, пополните автомат выпечкой", "Ошибка", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(jFrame, "В автомате 3 закончились бутылки с содовой\n" +
+                                "Пожалуйста, пополните автомат напитками", "Ошибка", JOptionPane.ERROR_MESSAGE);
                     break;
             }
         }
     }
 
     private void runMachineWithNumber3(Newspaper newspaper) {
-        int change = 0;
+        int income = 0;
         Random random = new Random();
         int randomForSleep;
         jTextAreaForMachine3.append("Ожидает заказа...\n");
@@ -822,7 +843,7 @@ public class AppearanceMachine implements ActionListener {
             thread3.sleep(randomForSleep);
             int randNumber = new Random().nextInt(45);
             if (randNumber < 20) {
-                JOptionPane.showMessageDialog(jFrame, "Автомат 3 не выдает выпечку\n" +
+                JOptionPane.showMessageDialog(jFrame, "Автомат 3 не выдает напиток\n" +
                         "Пожалуйста, вызовете тех.поддержку для автомата 3", "Ошибка", JOptionPane.ERROR_MESSAGE);
                 flError3 = 1;
                 runMachine3 = false;
@@ -833,26 +854,28 @@ public class AppearanceMachine implements ActionListener {
                     thread3.sleep(randomForSleep);
                 }
             }
-            jTextAreaForMachine3.append("Выпечка выдана\n");
+            jTextAreaForMachine3.append("Напиток выдан\n");
+            income += newspaper.getPrice();
+            income3.setText("Прибыль: " + income + " р.");
             newspaperMachine3.amountsOperations++;
             switch (order.toString()) {
-                case "Пирожок":
+                case "Вода":
                     newspaperMachine3.newspaper1--;
                     break;
-                case "Булочка":
+                case "Газировка":
                     newspaperMachine3.newspaper2--;
                     break;
-                case "Тортик":
+                case "Сок":
                     newspaperMachine3.newspaper3--;
                     break;
-                case "Кекс":
+                case "Содовая":
                     newspaperMachine3.newspaper4--;
                     break;
             }
-            amountPromotional3.setText("Пирожков: " + newspaperMachine3.newspaper1);
-            amountEntertaining3.setText("Булочек: " + newspaperMachine3.newspaper2);
-            amountDaily3.setText("Тортиков: " + newspaperMachine3.newspaper3);
-            amountWeekly3.setText("Кексов: " + newspaperMachine3.newspaper4);
+            amountPromotional3.setText("Бутылок воды: " + newspaperMachine3.newspaper1);
+            amountEntertaining3.setText("Бутылок газировки: " + newspaperMachine3.newspaper2);
+            amountDaily3.setText("Бутылок сока: " + newspaperMachine3.newspaper3);
+            amountWeekly3.setText("Бутылок содовой: " + newspaperMachine3.newspaper4);
             jLabelAmountOperation3.setText("Кол-во завершенных операций: " + newspaperMachine3.getAmountsOperations());
 //            jLabelForMachine3.setText("Автомат 3 (" + newspaperMachine3.getAmountsOperations() + ")");
             randomForSleep = random.nextInt(2000) + 2000;
