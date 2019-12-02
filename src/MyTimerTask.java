@@ -3,6 +3,7 @@ import java.util.TimerTask;
 
 public class MyTimerTask extends TimerTask {
     private volatile int time = -1;
+    private volatile int week = -1;
 
     private Runnable refresher = new Runnable() {
         @Override
@@ -17,10 +18,14 @@ public class MyTimerTask extends TimerTask {
         time += 1;
         SwingUtilities.invokeLater(refresher);
         if (time > 1438) {
-            AppearanceMachine.dailyButtonFill = true;
-            AppearanceMachine.jButtonFillDailyNewspaper.setEnabled(AppearanceMachine.dailyButtonFill);
-            JOptionPane.showMessageDialog(null, "Ого, прошел один день, замените выпечку:)");
+            week++;
             time = 0;
+            if (week > 6) {
+                AppearanceMachine.dailyButtonFill = true;
+                AppearanceMachine.jButtonFillDailyNewspaper.setEnabled(AppearanceMachine.dailyButtonFill);
+                JOptionPane.showMessageDialog(null, "Ого, прошла одна неделя, замените напитки:)");
+                week = 0;
+            }
         }
     }
 }

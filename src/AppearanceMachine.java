@@ -87,12 +87,20 @@ public class AppearanceMachine implements ActionListener {
 
     public static boolean dailyButtonFill = false;
 
+    static int incomeAmount1;
+    static int incomeAmount2;
+    static int incomeAmount3;
+
+
     public void go() {
         try {
             //UIManager.setLookAndFeel("com.sun.java.swing.plaf.gtk.GTKLookAndFeel");
         } catch (Exception e) {
             e.printStackTrace();
         }
+        incomeAmount1 = 0;
+        incomeAmount2 = 0;
+        incomeAmount3 = 0;
         jFrame = new JFrame("Сеть автоматов по продаже напитков");
         jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         jLabelForMachine1 = new JLabel("Автомат 1");
@@ -529,7 +537,6 @@ public class AppearanceMachine implements ActionListener {
     }
 
     private void runMachineWithNumber1(Newspaper newspaper) {
-        int income = 0;
         Random random = new Random();
         int randomForSleep;
         jTextAreaForMachine1.append("Ожидает заказа...\n");
@@ -567,8 +574,8 @@ public class AppearanceMachine implements ActionListener {
                 }
             }
             jTextAreaForMachine1.append("Напиток выдан\n");
-            income += newspaper.getPrice();
-            income1.setText("Прибыль: " + income + " р.");
+            incomeAmount1 += newspaper.getPrice();
+            income1.setText("Прибыль: " + incomeAmount1 + " р.");
             switch (order.toString()) {
                 case "Вода":
                     newspaperMachine1.newspaper1--;
@@ -673,7 +680,6 @@ public class AppearanceMachine implements ActionListener {
     }
 
     private void runMachineWithNumber2(Newspaper newspaper) {
-        int income = 0;
         Random random = new Random();
         int randomForSleep;
         jTextAreaForMachine2.append("Ожидает заказа...\n");
@@ -711,8 +717,8 @@ public class AppearanceMachine implements ActionListener {
                 }
             }
             jTextAreaForMachine2.append("Напиток выдан\n");
-            income += newspaper.getPrice();
-            income2.setText("Прибыль: " + income + " р.");
+            incomeAmount2 += newspaper.getPrice();
+            income2.setText("Прибыль: " + incomeAmount2 + " р.");
             newspaperMachine2.amountsOperations++;
             switch (order.toString()) {
                 case "Вода":
@@ -817,7 +823,6 @@ public class AppearanceMachine implements ActionListener {
     }
 
     private void runMachineWithNumber3(Newspaper newspaper) {
-        int income = 0;
         Random random = new Random();
         int randomForSleep;
         jTextAreaForMachine3.append("Ожидает заказа...\n");
@@ -855,8 +860,8 @@ public class AppearanceMachine implements ActionListener {
                 }
             }
             jTextAreaForMachine3.append("Напиток выдан\n");
-            income += newspaper.getPrice();
-            income3.setText("Прибыль: " + income + " р.");
+            incomeAmount3 += newspaper.getPrice();
+            income3.setText("Прибыль: " + incomeAmount3 + " р.");
             newspaperMachine3.amountsOperations++;
             switch (order.toString()) {
                 case "Вода":
