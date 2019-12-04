@@ -18,7 +18,9 @@ public class AppearanceMachine implements ActionListener {
     JLabel amountEntertaining1;
     JLabel amountDaily1;
     JLabel amountWeekly1;
-    JLabel income1;
+    JLabel profit1;
+    static JLabel costs1;
+    static JLabel income1;
     static JTextArea jTextAreaForMachine1;
 
     JLabel jLabelForMachine2;
@@ -28,7 +30,9 @@ public class AppearanceMachine implements ActionListener {
     JLabel amountEntertaining2;
     JLabel amountDaily2;
     JLabel amountWeekly2;
-    JLabel income2;
+    JLabel profit2;
+    static JLabel costs2;
+    static JLabel income2;
     static JTextArea jTextAreaForMachine2;
 
     JLabel jLabelForMachine3;
@@ -38,15 +42,17 @@ public class AppearanceMachine implements ActionListener {
     JLabel amountEntertaining3;
     JLabel amountDaily3;
     JLabel amountWeekly3;
-    JLabel income3;
+    JLabel profit3;
+    static JLabel costs3;
+    static JLabel income3;
     static JTextArea jTextAreaForMachine3;
 
     private JPanel jPanelForButton;
     static JButton jButtonTechnicalSupportForMachine1;//кнопка вызова технической поддержки
     static JButton jButtonTechnicalSupportForMachine2;//кнопка вызова технической поддержки
     static JButton jButtonTechnicalSupportForMachine3;//кнопка вызова технической поддержки
-    static JButton jButtonFillMachine;//кнопка наполнения газетами автомат
-    static JButton jButtonFillDailyNewspaper;//кнопка наполнения ежедневными газетами
+    static JButton jButtonFillMachine;//кнопка наполнения напитками автомат
+    static JButton jButtonFillDailyNewspaper;
 
     private JPanel jPanelForButtonBeginAndEnd;
 
@@ -90,6 +96,12 @@ public class AppearanceMachine implements ActionListener {
     static int incomeAmount1;
     static int incomeAmount2;
     static int incomeAmount3;
+    static int jCosts1;
+    static int jCosts2;
+    static int jCosts3;
+    static int jProfit1;
+    static int jProfit2;
+    static int jProfit3;
 
 
     public void go() {
@@ -101,6 +113,12 @@ public class AppearanceMachine implements ActionListener {
         incomeAmount1 = 0;
         incomeAmount2 = 0;
         incomeAmount3 = 0;
+        jCosts1 = 0;
+        jCosts2 = 0;
+        jCosts3 = 0;
+        jProfit1 = 0;
+        jProfit2 = 0;
+        jProfit3 = 0;
         jFrame = new JFrame("Сеть автоматов по продаже напитков");
         jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         jLabelForMachine1 = new JLabel("Автомат 1");
@@ -109,7 +127,9 @@ public class AppearanceMachine implements ActionListener {
         amountEntertaining1 = new JLabel("Бутылок газировки: ");//
         amountDaily1 = new JLabel("Бутылок сока: ");//
         amountWeekly1 = new JLabel("Бутылок содовой: ");//
-        income1 = new JLabel("Прибыль: 0 .р");
+        profit1 = new JLabel("Доход: 0 р.");
+        costs1 = new JLabel("Расходы: 0 р.");
+        income1 = new JLabel("Прибыль: 0 р.");
         jLabelAmounNewspaper1 = new JLabel("0 0 0 0");
         jTextAreaForMachine1 = new JTextArea(2, 3);
         JScrollPane scrollPane1 = new JScrollPane(jTextAreaForMachine1);
@@ -124,7 +144,9 @@ public class AppearanceMachine implements ActionListener {
         amountEntertaining2 = new JLabel("Бутылок газировки: ");
         amountDaily2 = new JLabel("Бутылок сока: ");
         amountWeekly2 = new JLabel("Бутылок содовой : ");
-        income2 = new JLabel("Прибыль: 0 .р");
+        profit2 = new JLabel("Доход: 0 р.");
+        costs2 = new JLabel("Расходы: 0 р.");
+        income2 = new JLabel("Прибыль: 0 р.");
         jLabelAmounNewspaper2 = new JLabel("0 0 0 0");
         jTextAreaForMachine2 = new JTextArea(2, 3);
         JScrollPane scrollPane2 = new JScrollPane(jTextAreaForMachine2);
@@ -139,7 +161,9 @@ public class AppearanceMachine implements ActionListener {
         amountEntertaining3 = new JLabel("Бутылок газировки: ");
         amountDaily3 = new JLabel("Бутылок сока: ");
         amountWeekly3 = new JLabel("Бутылок содовой: ");
-        income3 = new JLabel("Прибыль: 0 .р");
+        profit3 = new JLabel("Доход: 0 р.");
+        costs3 = new JLabel("Расходы: 0 р.");
+        income3 = new JLabel("Прибыль: 0 р.");
         jLabelAmounNewspaper3 = new JLabel("0 0 0 0");
         jTextAreaForMachine3 = new JTextArea(2, 3);
         JScrollPane scrollPane3 = new JScrollPane(jTextAreaForMachine3);
@@ -184,6 +208,10 @@ public class AppearanceMachine implements ActionListener {
         c.gridy = GridBagConstraints.RELATIVE;
         gridBagLayout.setConstraints(amountWeekly1, c);
         jPanelForMachine.add(amountWeekly1);
+        gridBagLayout.setConstraints(profit1, c);
+        gridBagLayout.setConstraints(costs1, c);
+        jPanelForMachine.add(profit1);
+        jPanelForMachine.add(costs1);
         gridBagLayout.setConstraints(income1, c);
         jPanelForMachine.add(income1);
 
@@ -228,6 +256,10 @@ public class AppearanceMachine implements ActionListener {
         c.gridy = GridBagConstraints.RELATIVE;
         gridBagLayout.setConstraints(amountWeekly2, c);
         jPanelForMachine.add(amountWeekly2);
+        gridBagLayout.setConstraints(profit2, c);
+        gridBagLayout.setConstraints(costs2, c);
+        jPanelForMachine.add(profit2);
+        jPanelForMachine.add(costs2);
         gridBagLayout.setConstraints(income2, c);
         jPanelForMachine.add(income2);
 
@@ -272,6 +304,10 @@ public class AppearanceMachine implements ActionListener {
         c.gridy = GridBagConstraints.RELATIVE;
         gridBagLayout.setConstraints(amountWeekly3, c);
         jPanelForMachine.add(amountWeekly3);
+        gridBagLayout.setConstraints(profit3, c);
+        gridBagLayout.setConstraints(costs3, c);
+        jPanelForMachine.add(profit3);
+        jPanelForMachine.add(costs3);
         gridBagLayout.setConstraints(income3, c);
         jPanelForMachine.add(income3);
 
@@ -396,15 +432,15 @@ public class AppearanceMachine implements ActionListener {
                     thread1.start();
                     Random random = new Random();
                     int randomForSleep = random.nextInt(20);
-                    thread1.sleep(randomForSleep);
+                    Thread.sleep(randomForSleep);
 
                     thread2.start();
                     randomForSleep = random.nextInt(20);
-                    thread2.sleep(randomForSleep);
+                    Thread.sleep(randomForSleep);
 
                     thread3.start();
                     randomForSleep = random.nextInt(20);
-                    thread3.sleep(randomForSleep);
+                    Thread.sleep(randomForSleep);
 
                 } catch (InterruptedException ex) {
                     ex.printStackTrace();
@@ -434,21 +470,51 @@ public class AppearanceMachine implements ActionListener {
                 runMachine1 = true;
                 buttonTechnicalSupport1 = false;
                 jButtonTechnicalSupportForMachine1.setEnabled(buttonTechnicalSupport1);
+                jCosts1 += 5;
+                incomeAmount1 = jProfit1 - jCosts1;
+                costs1.setText("Расходы: " + jCosts1 + " р.");
+                income1.setText("Прибыль: " + incomeAmount1 + " р.");
                 JOptionPane.showMessageDialog(jFrame, "Тех.поддержка исправила неисправность в работе автомата 1", "Сообщение", 1);
                 break;
             case "Вызвать тех.поддержку для автомата 2":
                 runMachine2 = true;
                 buttonTechnicalSupport2 = false;
                 jButtonTechnicalSupportForMachine2.setEnabled(buttonTechnicalSupport2);
+                jCosts2 += 5;
+                incomeAmount2 = jProfit2 - jCosts2;
+                costs2.setText("Расходы: " + jCosts2 + " р.");
+                income2.setText("Прибыль: " + incomeAmount2 + " р.");
                 JOptionPane.showMessageDialog(jFrame, "Тех.поддержка исправила неисправность в работе автомата 2", "Сообщение", 1);
                 break;
             case "Вызвать тех.поддержку для автомата 3":
                 runMachine3 = true;
                 buttonTechnicalSupport3 = false;
                 jButtonTechnicalSupportForMachine3.setEnabled(buttonTechnicalSupport3);
+                jCosts3 += 5;
+                incomeAmount3 = jProfit3 - jCosts3;
+                costs3.setText("Расходы: " + jCosts3 + " р.");
+                income3.setText("Прибыль: " + incomeAmount3 + " р.");
                 JOptionPane.showMessageDialog(jFrame, "Тех.поддержка исправила неисправность в работе автомата 3", "Сообщение", 1);
                 break;
             case "Пополнить напитки в автоматах":
+                jCosts1 += 2 * (5 - newspaperMachine1.getNewspaper1()) + 4 * (5 - newspaperMachine1.getNewspaper2())
+                        + 6 * (5 - newspaperMachine1.getNewspaper3()) + 8 * (5 - newspaperMachine1.getNewspaper4());
+                costs1.setText("Расходы: " + jCosts1 + " р.");
+                incomeAmount1 = incomeAmount1 = jProfit1 - jCosts1;
+                income1.setText("Прибыль: " + incomeAmount1 + " р.");
+
+                jCosts2 += 2 * (5 - newspaperMachine2.getNewspaper1()) + 4 * (5 - newspaperMachine2.getNewspaper2())
+                        + 6 * (5 - newspaperMachine2.getNewspaper3()) + 8 * (5 - newspaperMachine2.getNewspaper4());
+                costs2.setText("Расходы: " + jCosts2 + " р.");
+                incomeAmount2 = jProfit2 - jCosts2;
+                income2.setText("Прибыль: " + incomeAmount2 + " р.");
+
+                jCosts3 += 2 * (5 - newspaperMachine3.getNewspaper1()) + 4 * (5 - newspaperMachine3.getNewspaper2())
+                        + 6 * (5 - newspaperMachine3.getNewspaper3()) + 8 * (5 - newspaperMachine3.getNewspaper4());
+                costs3.setText("Расходы: " + jCosts3 + " р.");
+                incomeAmount3 = jProfit3 - jCosts3;
+                income2.setText("Прибыль: " + incomeAmount3 + " р.");
+
                 newspaperMachine1.setNewspaperAmount(5, 5, 5, 5);
                 newspaperMachine2.setNewspaperAmount(5, 5, 5, 5);
                 newspaperMachine3.setNewspaperAmount(5, 5, 5, 5);
@@ -468,6 +534,24 @@ public class AppearanceMachine implements ActionListener {
                 amountWeekly3.setText("Бутылок содовой: " + newspaperMachine3.newspaper4);
                 break;
             case "Обновить напитки в автоматах":
+                jCosts1 += 2 * (10 - newspaperMachine1.getNewspaper1()) + 4 * (10 - newspaperMachine1.getNewspaper2())
+                        + 6 * (10 - newspaperMachine1.getNewspaper3()) + 8 * (10 - newspaperMachine1.getNewspaper4());
+                costs1.setText("Расходы: " + jCosts1 + " р.");
+                incomeAmount3 = jProfit1 - jCosts1;
+                income1.setText("Прибыль: " + incomeAmount1 + " р.");
+
+                jCosts2 += 2 * (10 - newspaperMachine2.getNewspaper1()) + 4 * (10 - newspaperMachine2.getNewspaper2())
+                        + 6 * (10 - newspaperMachine2.getNewspaper3()) + 8 * (10 - newspaperMachine2.getNewspaper4());
+                costs2.setText("Расходы: " + jCosts2 + " р.");
+                incomeAmount3 = jProfit2 - jCosts2;
+                income2.setText("Прибыль: " + incomeAmount2 + " р.");
+
+                jCosts3 += 2 * (10 - newspaperMachine3.getNewspaper1()) + 4 * (10 - newspaperMachine3.getNewspaper2())
+                        + 6 * (10 - newspaperMachine3.getNewspaper3()) + 8 * (10 - newspaperMachine3.getNewspaper4());
+                costs3.setText("Расходы: " + jCosts3 + " р.");
+                incomeAmount3 = jProfit3 - jCosts3;
+                income2.setText("Прибыль: " + incomeAmount3 + " р.");
+
                 newspaperMachine1.setNewspaperAmount(10, 10, 10, 10);
                 newspaperMachine2.setNewspaperAmount(10, 10, 10, 10);
                 newspaperMachine3.setNewspaperAmount(10, 10, 10, 10);
@@ -496,7 +580,7 @@ public class AppearanceMachine implements ActionListener {
 
         @Override
         public void run() {
-            chooseNewspaper1();//метод выполняющий выбор газеты и т.д.;
+            chooseNewspaper1();//метод выполняющий выбор напитка и т.д.;
         }
     }
 
@@ -542,24 +626,24 @@ public class AppearanceMachine implements ActionListener {
         jTextAreaForMachine1.append("Ожидает заказа...\n");
         try {
             randomForSleep = random.nextInt(5000) + 5000;
-            thread1.sleep(randomForSleep);
+            Thread.sleep(randomForSleep);
             StringBuffer order = new StringBuffer(newspaper.getTitle());
             jTextAreaForMachine1.append(order.toString() + "\n");
             newspaperMachine1.amountsOperations++;
             jLabelAmountOperation1.setText("Кол-во завершенных операций: " + newspaperMachine1.getAmountsOperations());
 //            jLabelForMachine1.setText("Автомат 1 (" + newspaperMachine1.getAmountsOperations() + ")");
             randomForSleep = random.nextInt(2000) + 2000;
-            thread1.sleep(randomForSleep);
+            Thread.sleep(randomForSleep);
             int randomSum = ((new Random().nextInt(newspaper.getPrice() / 10) * 2) + newspaper.getPrice() / 10) * 10;
-            jTextAreaForMachine1.append("Внесено " + String.valueOf(randomSum) + " руб.\n");
+            jTextAreaForMachine1.append("Внесено " + randomSum + " руб.\n");
             newspaperMachine1.amountsOperations++;
 //            jLabelForMachine1.setText("Автомат 1 (" + newspaperMachine1.getAmountsOperations() + ")");
             jLabelAmountOperation1.setText("Кол-во завершенных операций: " + newspaperMachine1.getAmountsOperations());
             randomForSleep = random.nextInt(2000) + 2000;
-            thread1.sleep(randomForSleep);
+            Thread.sleep(randomForSleep);
             newspaperMachine1.setMoney(newspaperMachine1.getMoney() + randomSum);
             randomForSleep = random.nextInt(2000) + 2000;
-            thread1.sleep(randomForSleep);
+            Thread.sleep(randomForSleep);
             int randNumber = new Random().nextInt(45);
             if (randNumber < 20) {
                 JOptionPane.showMessageDialog(jFrame, "Автомат 1 не выдает напиток\n" +
@@ -570,12 +654,14 @@ public class AppearanceMachine implements ActionListener {
                 jButtonTechnicalSupportForMachine1.setEnabled(buttonTechnicalSupport1);
                 while (buttonTechnicalSupport1) {
                     randomForSleep = random.nextInt(2000) + 2000;
-                    thread1.sleep(randomForSleep);
+                    Thread.sleep(randomForSleep);
                 }
             }
             jTextAreaForMachine1.append("Напиток выдан\n");
             incomeAmount1 += newspaper.getPrice();
             income1.setText("Прибыль: " + incomeAmount1 + " р.");
+            jProfit1 += newspaper.getPrice();
+            profit1.setText("Доход: " + jProfit1 + " р.");
             switch (order.toString()) {
                 case "Вода":
                     newspaperMachine1.newspaper1--;
@@ -598,7 +684,7 @@ public class AppearanceMachine implements ActionListener {
 //            jLabelForMachine1.setText("Автомат 1 (" + newspaperMachine1.getAmountsOperations() + ")");
             jLabelAmountOperation1.setText("Кол-во завершенных операций: " + newspaperMachine1.getAmountsOperations());
             randomForSleep = random.nextInt(2000) + 2000;
-            thread1.sleep(randomForSleep);
+            Thread.sleep(randomForSleep);
             if (randomSum > newspaper.getPrice()) {
                 errorGiveChange1();
                 newspaperMachine1.setMoney(newspaperMachine1.getMoney() - (randomSum - newspaper.getPrice()));
@@ -607,7 +693,7 @@ public class AppearanceMachine implements ActionListener {
                 jLabelAmountOperation1.setText("Кол-во завершенных операций: " + newspaperMachine1.getAmountsOperations());
                 jTextAreaForMachine1.append("Выдана сдача " + (randomSum - newspaper.getPrice()) + " руб.\n");
                 randomForSleep = random.nextInt(2000) + 2000;
-                thread1.sleep(randomForSleep);
+                Thread.sleep(randomForSleep);
             }
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -625,7 +711,7 @@ public class AppearanceMachine implements ActionListener {
             jButtonTechnicalSupportForMachine1.setEnabled(buttonTechnicalSupport1);
             while (buttonTechnicalSupport1) {
                 try {
-                    thread2.sleep(500);
+                    Thread.sleep(500);
                 } catch (InterruptedException ex) {
                     ex.printStackTrace();
                 }
@@ -685,24 +771,24 @@ public class AppearanceMachine implements ActionListener {
         jTextAreaForMachine2.append("Ожидает заказа...\n");
         try {
             randomForSleep = random.nextInt(5000) + 5000;
-            thread2.sleep(randomForSleep);
+            Thread.sleep(randomForSleep);
             StringBuffer order = new StringBuffer(newspaper.getTitle());
             jTextAreaForMachine2.append(order.toString() + "\n");
             newspaperMachine2.amountsOperations++;
             jLabelAmountOperation2.setText("Кол-во завершенных операций: " + newspaperMachine2.getAmountsOperations());
 //            jLabelForMachine2.setText("Автомат 2 (" + newspaperMachine2.getAmountsOperations() + ")");
             randomForSleep = random.nextInt(2000) + 2000;
-            thread2.sleep(randomForSleep);
+            Thread.sleep(randomForSleep);
             int randomSum = ((new Random().nextInt(newspaper.getPrice() / 10) * 2) + newspaper.getPrice() / 10) * 10;
-            jTextAreaForMachine2.append("Внесено " + String.valueOf(randomSum) + " руб.\n");
+            jTextAreaForMachine2.append("Внесено " + randomSum + " руб.\n");
             newspaperMachine2.amountsOperations++;
             jLabelAmountOperation2.setText("Кол-во завершенных операций: " + newspaperMachine2.getAmountsOperations());
 //            jLabelForMachine2.setText("Автомат 2 (" + newspaperMachine2.getAmountsOperations() + ")");
             randomForSleep = random.nextInt(2000) + 2000;
-            thread2.sleep(randomForSleep);
+            Thread.sleep(randomForSleep);
             newspaperMachine2.setMoney(newspaperMachine2.getMoney() + randomSum);
             randomForSleep = random.nextInt(2000) + 2000;
-            thread2.sleep(randomForSleep);
+            Thread.sleep(randomForSleep);
             int randNumber = new Random().nextInt(45);
             if (randNumber < 20) {
                 JOptionPane.showMessageDialog(jFrame, "Автомат 2 не выдает напиток\n" +
@@ -713,12 +799,14 @@ public class AppearanceMachine implements ActionListener {
                 jButtonTechnicalSupportForMachine2.setEnabled(buttonTechnicalSupport2);
                 while (buttonTechnicalSupport2) {
                     randomForSleep = random.nextInt(2000) + 2000;
-                    thread2.sleep(randomForSleep);
+                    Thread.sleep(randomForSleep);
                 }
             }
             jTextAreaForMachine2.append("Напиток выдан\n");
             incomeAmount2 += newspaper.getPrice();
             income2.setText("Прибыль: " + incomeAmount2 + " р.");
+            jProfit2 += newspaper.getPrice();
+            profit2.setText("Доход: " + jProfit2 + " р.");
             newspaperMachine2.amountsOperations++;
             switch (order.toString()) {
                 case "Вода":
@@ -741,7 +829,7 @@ public class AppearanceMachine implements ActionListener {
             jLabelAmountOperation2.setText("Кол-во завершенных операций: " + newspaperMachine2.getAmountsOperations());
 //            jLabelForMachine2.setText("Автомат 2 (" + newspaperMachine2.getAmountsOperations() + ")");
             randomForSleep = random.nextInt(2000) + 2000;
-            thread2.sleep(randomForSleep);
+            Thread.sleep(randomForSleep);
             if (randomSum > newspaper.getPrice()) {
                 errorGiveChange2();
                 newspaperMachine2.setMoney(newspaperMachine2.getMoney() - (randomSum - newspaper.getPrice()));
@@ -750,7 +838,7 @@ public class AppearanceMachine implements ActionListener {
 //                jLabelForMachine2.setText("Автомат 2 (" + newspaperMachine2.getAmountsOperations() + ")");
                 jTextAreaForMachine2.append("Выдана сдача " + (randomSum - newspaper.getPrice()) + " руб.\n");
                 randomForSleep = random.nextInt(2000) + 2000;
-                thread2.sleep(randomForSleep);
+                Thread.sleep(randomForSleep);
             }
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -768,7 +856,7 @@ public class AppearanceMachine implements ActionListener {
             jButtonTechnicalSupportForMachine2.setEnabled(buttonTechnicalSupport2);
             while (buttonTechnicalSupport2) {
                 try {
-                    thread2.sleep(500);
+                    Thread.sleep(500);
                 } catch (InterruptedException ex) {
                     ex.printStackTrace();
                 }
@@ -828,24 +916,24 @@ public class AppearanceMachine implements ActionListener {
         jTextAreaForMachine3.append("Ожидает заказа...\n");
         try {
             randomForSleep = random.nextInt(5000) + 5000;
-            thread3.sleep(randomForSleep);
+            Thread.sleep(randomForSleep);
             StringBuffer order = new StringBuffer(newspaper.getTitle());
             jTextAreaForMachine3.append(order.toString() + "\n");
             newspaperMachine3.amountsOperations++;
             jLabelAmountOperation3.setText("Кол-во завершенных операций: " + newspaperMachine3.getAmountsOperations());
 //            jLabelForMachine3.setText("Автомат 3 (" + newspaperMachine3.getAmountsOperations() + ")");
             randomForSleep = random.nextInt(2000) + 2000;
-            thread3.sleep(randomForSleep);
+            Thread.sleep(randomForSleep);
             int randomSum = ((new Random().nextInt(newspaper.getPrice() / 10) * 2) + newspaper.getPrice() / 10) * 10;
-            jTextAreaForMachine3.append("Внесено " + String.valueOf(randomSum) + " руб.\n");
+            jTextAreaForMachine3.append("Внесено " + randomSum + " руб.\n");
             newspaperMachine3.amountsOperations++;
             jLabelAmountOperation3.setText("Кол-во завершенных операций: " + newspaperMachine3.getAmountsOperations());
 //            jLabelForMachine3.setText("Автомат 3 (" + newspaperMachine3.getAmountsOperations() + ")");
             randomForSleep = random.nextInt(2000) + 2000;
-            thread3.sleep(randomForSleep);
+            Thread.sleep(randomForSleep);
             newspaperMachine3.setMoney(newspaperMachine3.getMoney() + randomSum);
             randomForSleep = random.nextInt(2000) + 2000;
-            thread3.sleep(randomForSleep);
+            Thread.sleep(randomForSleep);
             int randNumber = new Random().nextInt(45);
             if (randNumber < 20) {
                 JOptionPane.showMessageDialog(jFrame, "Автомат 3 не выдает напиток\n" +
@@ -856,12 +944,14 @@ public class AppearanceMachine implements ActionListener {
                 jButtonTechnicalSupportForMachine3.setEnabled(buttonTechnicalSupport3);
                 while (buttonTechnicalSupport3) {
                     randomForSleep = random.nextInt(2000) + 2000;
-                    thread3.sleep(randomForSleep);
+                    Thread.sleep(randomForSleep);
                 }
             }
             jTextAreaForMachine3.append("Напиток выдан\n");
             incomeAmount3 += newspaper.getPrice();
             income3.setText("Прибыль: " + incomeAmount3 + " р.");
+            jProfit3 += newspaper.getPrice();
+            profit3.setText("Доход: " + jProfit3 + " р.");
             newspaperMachine3.amountsOperations++;
             switch (order.toString()) {
                 case "Вода":
@@ -884,7 +974,7 @@ public class AppearanceMachine implements ActionListener {
             jLabelAmountOperation3.setText("Кол-во завершенных операций: " + newspaperMachine3.getAmountsOperations());
 //            jLabelForMachine3.setText("Автомат 3 (" + newspaperMachine3.getAmountsOperations() + ")");
             randomForSleep = random.nextInt(2000) + 2000;
-            thread3.sleep(randomForSleep);
+            Thread.sleep(randomForSleep);
             if (randomSum > newspaper.getPrice()) {
                 errorGiveChange3();
                 newspaperMachine3.setMoney(newspaperMachine3.getMoney() - (randomSum - newspaper.getPrice()));
@@ -893,7 +983,7 @@ public class AppearanceMachine implements ActionListener {
 //                jLabelForMachine3.setText("Автомат 3 (" + newspaperMachine3.getAmountsOperations() + ")");
                 jTextAreaForMachine3.append("Выдана сдача " + (randomSum - newspaper.getPrice()) + " руб.\n");
                 randomForSleep = random.nextInt(2000) + 2000;
-                thread3.sleep(randomForSleep);
+                Thread.sleep(randomForSleep);
             }
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -911,7 +1001,7 @@ public class AppearanceMachine implements ActionListener {
             jButtonTechnicalSupportForMachine3.setEnabled(buttonTechnicalSupport3);
             while (buttonTechnicalSupport3) {
                 try {
-                    thread3.sleep(500);
+                    Thread.sleep(500);
                 } catch (InterruptedException ex) {
                     ex.printStackTrace();
                 }

@@ -1,6 +1,23 @@
 public class NewspaperMachine {
     private int money;
     public int amountsOperations;
+
+    public int getNewspaper1() {
+        return newspaper1;
+    }
+
+    public int getNewspaper2() {
+        return newspaper2;
+    }
+
+    public int getNewspaper3() {
+        return newspaper3;
+    }
+
+    public int getNewspaper4() {
+        return newspaper4;
+    }
+
     public int newspaper1;
     public int newspaper2;
     public int newspaper3;

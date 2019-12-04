@@ -13,11 +13,29 @@ public class MyTimerTask extends TimerTask {
         }
     };
 
+    public void minus() {
+        AppearanceMachine.jCosts1 += 5;
+        AppearanceMachine.incomeAmount1 = AppearanceMachine.jProfit1 - AppearanceMachine.jCosts1;
+        AppearanceMachine.costs1.setText("Расходы: " + AppearanceMachine.jCosts1 + " р.");
+        AppearanceMachine.income1.setText("Прибыль: " + AppearanceMachine.incomeAmount1 + " р.");
+
+        AppearanceMachine.jCosts2 += 5;
+        AppearanceMachine.incomeAmount2 = AppearanceMachine.jProfit2 - AppearanceMachine.jCosts2;
+        AppearanceMachine.costs2.setText("Расходы: " + AppearanceMachine.jCosts2 + " р.");
+        AppearanceMachine.income2.setText("Прибыль: " + AppearanceMachine.incomeAmount2 + " р.");
+
+        AppearanceMachine.jCosts3 += 5;
+        AppearanceMachine.incomeAmount3 -= AppearanceMachine.jProfit3 - AppearanceMachine.jCosts3;
+        AppearanceMachine.costs3.setText("Расходы: " + AppearanceMachine.jCosts3 + " р.");
+        AppearanceMachine.income3.setText("Прибыль: " + AppearanceMachine.incomeAmount3 + " р.");
+    }
+
     @Override
     public void run() {
         time += 1;
         SwingUtilities.invokeLater(refresher);
         if (time > 1438) {
+            minus();
             week++;
             time = 0;
             if (week > 6) {
